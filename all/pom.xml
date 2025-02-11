@@ -77,6 +77,12 @@
                             <type>zip</type>
                             <target>/apps/newsportal-packages/application/install</target>
                         </embedded>
+                        <embedded>
+                            <groupId>org.cid15.aem.groovy.console</groupId>
+                            <artifactId>aem-groovy-console-all</artifactId>
+                            <type>zip</type>
+                            <target>/apps/newsportal-packages/groovyconsole/install</target>
+                        </embedded>
                     </embeddeds>
                 </configuration>
             </plugin>
@@ -196,6 +202,11 @@
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>
-
+        <dependency>
+            <groupId>org.cid15.aem.groovy.console</groupId>
+            <artifactId>aem-groovy-console-all</artifactId>
+            <version>17.0.0</version>
+            <type>zip</type>
+        </dependency>
     </dependencies>
 </project>
