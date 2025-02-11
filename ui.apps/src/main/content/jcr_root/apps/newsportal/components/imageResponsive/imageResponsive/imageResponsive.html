@@ -1,0 +1,48 @@
+<div style="
+    background-color: #d8d2df;">
+<div data-sly-use.model="com.gofortrainings.newsportal.core.models.ImageResponsive">
+<h2>Responsive Image Gallery</h2>
+<h4>Resize the browser window to see the effect.</h4>
+<sly data-sly-list.image="${model.images}">
+<sly data-sly-test="${imageList.index < 4}">
+  <div class="responsive">
+    <div class="gallery">    
+      <a target="_blank" href="${image.src @ context='uri'}">
+      <div class="cont">
+      <div class="top-left"> ${image.text}</div>
+        <img src="${image.src @ context='uri'}" alt="${image.text} width="600" height="400"" >
+       </div>
+      </a>
+    </div>
+  </div>
+  </sly>
+  </sly>
+  <div class="clearfix"></div>
+</sly>
+
+<div  class="childpages-extra" style="display: none;">
+<sly data-sly-list.image="${model.images}">
+ 
+<sly data-sly-test="${imageList.index >= 4}">
+
+  <div class="responsive" >
+    <div class="gallery"> 
+      <a target="_blank" href="${image.src @ context='uri'}">
+      <div class="cont">
+      <div class="top-left"> ${image.text}</div>
+        <img src="${image.src @ context='uri'}" alt="${image.text} width="600" height="400"" >
+       </div>
+      </a>
+    </div>
+  </div>
+</sly>
+</sly>
+</div>
+  <div class="clearfix"></div>
+  <button class="toggle-childpages" >View All Pages</button>
+
+<div style="padding:6px;display: block;">
+  <p>This example use media queries to re-arrange the images on different screen sizes: for screens larger than 700px wide, it will show four images side by side, for screens smaller than 700px, it will show two images side by side. For screens smaller than 500px, the images will stack vertically (100%).</p>
+</div>
+</div>
+</div>
