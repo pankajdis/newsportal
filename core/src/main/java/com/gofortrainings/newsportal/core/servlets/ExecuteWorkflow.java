@@ -35,7 +35,7 @@ public class ExecuteWorkflow extends SlingSafeMethodsServlet {
 
                 WorkflowSession workflowSession = resourceResolver.adaptTo(WorkflowSession.class);
 
-                WorkflowModel workflowModel = workflowSession.getModel("/var/workflow/models/pks-page-version");
+                WorkflowModel workflowModel = workflowSession.getModel("/var/workflow/models/geeks_page_version");
 
                 WorkflowData workflowData = workflowSession.newWorkflowData("JCR_PATH", payload);
 
