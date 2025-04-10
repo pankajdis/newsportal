@@ -1,0 +1,15 @@
+<h1>This is Custom component </h1>
+<p id="demo"></p>
+
+<sly data-sly-use.model="com.gofortrainings.newsportal.core.models.CustomSlingModel">
+${model.title}<br>
+${model.description}<br>
+<img src="${model.description}" alt="by-description">
+<img src="${model.articleImage}" alt="by article Image">
+Contact Details:
+<sly data-sly-list.item= "${model.contact}">
+Name - ${item.contactName @ context='html'}<br>
+mail - ${item.contactEmail @ context='html'}<br>
+
+</sly>
+</sly>
