@@ -1,0 +1,8 @@
+.image-ribbon .image-container {
+  display: flex;
+  overflow-x: auto;
+}
+.ribbon-image {
+  width: 200px;
+  margin-right: 10px;
+}
