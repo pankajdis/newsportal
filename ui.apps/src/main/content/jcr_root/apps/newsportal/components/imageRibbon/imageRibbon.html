@@ -1,0 +1,9 @@
+<div class="image-ribbon">
+    <div class="image-container">
+      <sly data-sly-use.ribbon="com.gofortrainings.newsportal.core.models.ImageRibbonModel" />
+      <sly data-sly-list="${ribbon.imagePaths}">
+        <img class="ribbon-image" src="${item}" alt="" />
+      </sly>
+    </div>
+  </div>
+  abc
