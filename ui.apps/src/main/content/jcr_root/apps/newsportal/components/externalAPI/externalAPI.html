@@ -1,0 +1,29 @@
+gender
+${properties.apiUrl}
+<sly data-sly-use.externalApiComponent="com.gofortrainings.newsportal.core.models.ExternalAPIComponent">
+
+    Teest =${externalApiComponent.apiUrl};
+    Teest =${externalApiComponent.apiData}
+</sly>
+
+
+<!--<div class="component" data-apiurl=${properties.apiUrl}>
+        <ul id="list"></ul>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            let component = document.querySelector(".component");
+            let apiUrl = component.dataset.apiurl;
+            console.log(apiUrl);
+            if(apiUrl){
+                fetch(apiUrl)
+                 .then((res)=>res.json())
+                 .then((data)=> {
+                    console.log(data);
+                    const obj = data.id +" , name:"+ data.name +" , year:"+ data.data.year +" , price:"+ data.data.price;
+                    document.getElementById("list").innerHTML =obj;
+                 })
+            }
+        })
+    </script>-->
+    

@@ -1,0 +1,22 @@
+<h1>Test Component</h1><br>
+url = ${properties.text}<br>
+
+<button id="btn">Get a Fact</button>
+<p id="fact"></p>
+<script>
+    const url1 = "https://api.restful-api.dev/objects/6";
+    const factPara =  document.querySelector("#fact");
+    const btn = document.querySelector("#btn");
+
+    const getFacts = async () => {
+        console.log("getting data -------");
+        let response = await fetch(url1);
+        console.log(response);
+        let data = await response.json();
+        console.log(data);
+        
+        factPara.innerText = data.name;
+
+    };
+    btn.addEventListener("click",getFacts);
+</script>
