@@ -25,6 +25,11 @@ public class ArticleService{
 
     private  String articleRestUrl;
     private boolean status;
+
+    public boolean isStatus() {
+        return status;
+    }
+
     @Activate
     public void activate(ArticleConfiguration config){
         LOG.info("ArticleService - Inside Article Service Activate method");
@@ -44,8 +49,10 @@ public class ArticleService{
         this.status = config.status();
     }
 
-    public String getArticles(){
-
+    public String getArticles(boolean status){
+        if (!status) {
+            return "STATUS is false";
+        }
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpGet request = new HttpGet(articleRestUrl);
         String result =null;

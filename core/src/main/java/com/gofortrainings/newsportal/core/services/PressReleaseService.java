@@ -17,7 +17,7 @@ public class PressReleaseService {
 
     @Activate
     public void activate(){
-        String articles = articleService.getArticles();
+        String articles = articleService.getArticles(articleService.isStatus());
         LOG.info("Press Release Service - Inside Activate Method");
         LOG.info("Response -{}",articles);
     }
