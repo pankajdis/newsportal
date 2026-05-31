@@ -1,0 +1,49 @@
+<!-- start header -->
+<header data-sly-use.headerModel="com.gofortrainings.newsportal.core.models.Header">
+    <div class="navbar navbar-default navbar-static-top">
+        <div class="container">
+
+            <!-- Logo -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="${headerModel.logoLink}">
+                    <img src="${headerModel.fileReference}" alt="${headerModel.altText}" width="199" height="52"/>
+                </a>
+            </div>
+
+            <!-- Navigation -->
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Loop over Primary Navigation items -->
+                    <sly data-sly-list.navItem="${headerModel.navigationsResource}">
+                        <li class="dropdown">
+                            <a href="${navItem.path}"
+                               class="dropdown-toggle"
+                               data-toggle="dropdown"
+                               data-hover="dropdown"
+                               data-delay="0"
+                               data-close-others="false">
+                                ${navItem.title}
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+
+                            <!-- Dropdown (Child Pages) -->
+                            <ul class="dropdown-menu">
+                                <sly data-sly-list.child="${navItem.childList}">
+                                    <li>
+                                        <a href="${child.path}">${child.title}</a>
+                                    </li>
+                                </sly>
+                            </ul>
+                        </li>
+                    </sly>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- end header -->

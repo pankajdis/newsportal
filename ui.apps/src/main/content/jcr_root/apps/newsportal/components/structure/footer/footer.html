@@ -1,0 +1,30 @@
+<footer data-sly-use.footer="com.gofortrainings.newsportal.core.models.FooterModel">
+<footer class="site-footer">
+    <div class="footer-top">
+        <!-- Description -->
+        <p class="footer-description">${footer.description}</p>
+
+        <!-- Social Icons -->
+        <div class="footer-social">
+            <ul>
+                <sly data-sly-list.icon="${footer.socialIcons}">
+                    <li>
+                        <a href="${icon.iconLink}" target="_blank" title="${icon.iconClass}">
+                            <i class="${icon.iconClass}"></i>
+                        </a>
+                    </li>
+                </sly>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>
+            <a href="${footer.copyrightLink}" title="${footer.copyrightText}">
+                ${footer.copyrightText}
+            </a>
+        </p>
+    </div>
+</footer>
+
+</footer>

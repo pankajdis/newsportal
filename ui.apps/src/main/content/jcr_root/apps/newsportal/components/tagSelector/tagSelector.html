@@ -1,0 +1,6 @@
+<sly data-sly-use.model="com.gofortrainings.newsportal.core.models.TaggedPagesListModel" />
+<ul>
+    <sly data-sly-list.pageInfo="${model.taggedPages}">
+        <li><a href=${pageInfo.path}>${pageInfo.title}</a></li>
+    </sly>
+</ul>
