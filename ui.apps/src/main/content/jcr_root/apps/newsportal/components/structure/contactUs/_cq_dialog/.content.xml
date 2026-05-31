@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Dialog"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs">
+                
+                <items jcr:primaryType="nt:unstructured">
+
+                    <!-- Basic Info -->
+                    <basic
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Basic Info"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+
+                        <items jcr:primaryType="nt:unstructured">
+                            <fields
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+
+                                <items jcr:primaryType="nt:unstructured">
+
+                                    <companyTitle
+                                        jcr:primaryType="nt:unstructured"
+                                        fieldLabel="Company Title"
+                                        name="./companyTitle"
+                                        required="{Boolean}true"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
+
+                                    <companyAddress
+                                        jcr:primaryType="nt:unstructured"
+                                        fieldLabel="Company Address"
+                                        name="./companyAddress"
+                                        required="{Boolean}true"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textarea"/>
+
+                                    <companyPhone
+                                        jcr:primaryType="nt:unstructured"
+                                        fieldLabel="Company Phone Number"
+                                        name="./companyPhone"
+                                        required="{Boolean}true"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
+
+                                    <companyEmail
+                                        jcr:primaryType="nt:unstructured"
+                                        fieldLabel="Company Email"
+                                        name="./companyEmail"
+                                        required="{Boolean}true"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
+                                </items>
+                            </fields>
+                        </items>
+                    </basic>
+
+                    <!-- Labels -->
+                    <labels
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Labels"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+
+                        <items jcr:primaryType="nt:unstructured">
+                            <firstNameLabel
+                                jcr:primaryType="nt:unstructured"
+                                fieldLabel="First Name Label"
+                                name="./firstNameLabel"
+                                value="Your First Name"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
+
+                            <lastNameLabel
+                                jcr:primaryType="nt:unstructured"
+                                fieldLabel="Last Name Label"
+                                name="./lastNameLabel"
+                                value="Your Last Name"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
+
+                            <emailLabel
+                                jcr:primaryType="nt:unstructured"
+                                fieldLabel="Email Label"
+                                name="./emailLabel"
+                                value="Your Email"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
+
+                            <subjectLabel
+                                jcr:primaryType="nt:unstructured"
+                                fieldLabel="Subject Label"
+                                name="./subjectLabel"
+                                value="Subject"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
+
+                            <messageLabel
+                                jcr:primaryType="nt:unstructured"
+                                fieldLabel="Message Label"
+                                name="./messageLabel"
+                                value="Please write something for us"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
+                        </items>
+                    </labels>
+
+                    <!-- Additional Options -->
+                    <additional
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Additional Options"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <additionalFormFields
+                                jcr:primaryType="nt:unstructured"
+                                fieldLabel="Additional Form Fields"
+                                name="./additionalFormFields"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/switch"/>
+                        </items>
+                    </additional>
+
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>
