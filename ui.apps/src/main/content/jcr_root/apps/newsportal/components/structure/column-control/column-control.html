@@ -1,0 +1,13 @@
+<sly data-sly-use.model="com.gofortrainings.newsportal.core.models.ColumnControlModel" />
+<div class="container">
+    <h4>Column Control</h4>
+    <div class="row text-center">
+        <sly data-sly-list.col="${model.columns}">
+            <sly data-sly-set.columnPath="${'column' @ context='text'}${colList.index}" />
+            <div class="${col}">
+                <sly
+                        data-sly-resource="${ @ path=columnPath, resourceType='wcm/foundation/components/responsivegrid' }" />
+            </div>
+        </sly>
+    </div>
+</div>

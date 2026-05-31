@@ -83,6 +83,10 @@
 		}
 		/allowedClients {
 			$include "../cache/default_invalidate.any"
+			/0003 {
+            	/type "allow"
+            	/glob "172.17.0.1"
+            }
 		}
 		# The ignoreUrlParams section contains query string parameter names that
 		# should be ignored when determining whether some request's output can be
@@ -127,3 +131,4 @@
 		/enableTTL "1"
 	}
 }
+

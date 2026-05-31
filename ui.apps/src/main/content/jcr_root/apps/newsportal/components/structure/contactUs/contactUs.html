@@ -1,0 +1,46 @@
+<sly data-sly-use.model="com.gofortrainings.newsportal.core.models.ContactFormModel" />
+
+<section class="contact-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h3>${model.companyTitle}</h3>
+                <p>${model.companyAddress}</p>
+                <p><b>Phone:</b> ${model.companyPhone}</p>
+                <p><b>Email:</b> ${model.companyEmail}</p>
+            </div>
+
+            <div class="col-lg-6">
+                <h3>Get in touch with us</h3>
+                <form action="/bin/sendcontactemail" method="post">
+                    <div>
+                        <label>${model.firstNameLabel}</label>
+                        <input type="text" name="firstName" required />
+                    </div>
+                    <div>
+                        <label>${model.lastNameLabel}</label>
+                        <input type="text" name="lastName" required />
+                    </div>
+                    <div>
+                        <label>${model.emailLabel}</label>
+                        <input type="email" name="email" required />
+                    </div>
+                    <div>
+                        <label>${model.subjectLabel}</label>
+                        <input type="text" name="subject" required />
+                    </div>
+                    <div>
+                        <label>${model.messageLabel}</label>
+                        <textarea name="message" required></textarea>
+                    </div>
+
+                    <sly data-sly-test="${model.additionalFormFields}">
+                        <div data-sly-resource="${'additional' @ resourceType='wcm/foundation/components/parsys'}"></div>
+                    </sly>
+
+                    <button type="submit" class="btn btn-theme">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,32 +1,29 @@
 package com.gofortrainings.newsportal.core.servlets;
 
 
-import com.adobe.xfa.ut.Key;
+import com.day.cq.wcm.api.Page;
+import com.day.cq.wcm.api.PageManager;
 import com.gofortrainings.newsportal.core.services.JcrNodeService;
 import com.gofortrainings.newsportal.core.services.NPUtilService;
-import com.gofortrainings.newsportal.core.services.impl.JcrNodeServiceImpl;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.*;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
-import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 import org.apache.sling.servlets.annotations.SlingServletPaths;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.json.Json;
-import javax.json.JsonBuilderFactory;
 import javax.json.JsonObjectBuilder;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
+import java.util.Optional;
 
 @Component(service = Servlet.class, immediate = true)
 @SlingServletPaths("/bin/test")
@@ -45,13 +42,36 @@ public class JcrNodeServiceServlet extends SlingAllMethodsServlet {
         } catch (LoginException e) {
             throw new RuntimeException(e);
         }
+        Resource currentPagePath = null;
         Resource userResource = resourceResolver.getResource("/content/newsportal/us/en/home-page/jcr:content/root/container/container/image_list");
+        PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
+        Page page = pageManager.getContainingPage(userResource);
+
+        /*String currentPagePath = Optional.ofNullable(pageManager)
+                .map(pm -> pm.getContainingPage(userResource))
+                .map(Page::getPath).orElse(null);*/
         JsonObjectBuilder userJson =  Json.createObjectBuilder();
-        if (userResource != null){
-            ValueMap prop = userResource.getValueMap();
-            userJson.add("prntPage",prop.get("parentPage",String.class));
-            userJson.add("tagsMatch",prop.get("tagsMatch",String.class));
+        if(page!=null){
+            currentPagePath = page.getContentResource();
+            ValueMap prop = currentPagePath.getValueMap();
+            for(String key : prop.keySet()){
+                Object value = prop.get(key);
+                if (value != null) {
+                    userJson.add(key, value.toString());
+                }
+            }
         }
+        /*if (userResource != null){
+            ValueMap prop = userResource.getValueMap();
+            *//*userJson.add("prntPage",prop.get("parentPage",String.class));
+            userJson.add("tagsMatch",prop.get("tagsMatch",String.class));*//*
+            for(String key : prop.keySet()){
+                Object value = prop.get(key);
+                if (value != null) {
+                    userJson.add(key, value.toString());
+                }
+            }
+        }*/
         response.setContentType("text/plain");
         response.getWriter().write(userJson.build().toString());
     }

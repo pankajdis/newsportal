@@ -1,0 +1,23 @@
+<sly data-sly-use.model="com.gofortrainings.newsportal.core.models.TreatmentModel"/>
+
+<!-- Build style dynamically -->
+<!-- First create empty style -->
+<sly data-sly-set.styleString="height:400px; width:100%;" />
+
+<!-- If treatment is image, append background -->
+<sly data-sly-test="${model.treatment == 'image' && properties.fileReference}">
+    <sly data-sly-set.styleString="${'background-image:url(' @ context='styleString'}${properties.fileReference @ context='uri'}${'); ' @ context='styleString'}${styleString}" />
+</sly>
+
+<div class="jumbotron jumbotron-fluid ${model.treatment}"
+     style="${styleString @ context='styleString'}">
+
+    <div class="container col-md-offset-1">
+
+        <!-- Allowed component: Feature Promo only -->
+        <div class="parsys" data-sly-resource="${'par' @ resourceType='wcm/foundation/components/parsys'}"></div>
+
+    </div>
+
+</div>
+

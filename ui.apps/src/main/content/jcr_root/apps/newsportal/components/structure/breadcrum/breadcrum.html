@@ -1,0 +1,18 @@
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <ul class="breadcrumb" data-sly-use.bc="com.gofortrainings.newsportal.core.models.BreadcrumbModel">
+
+                    <li data-sly-repeat.page="${bc.trail}">
+                        <a href="${page.path}.html">${page.title}</a>
+                        <i class="icon-angle-right" data-sly-test="${!pageList.last}"></i>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</section>
